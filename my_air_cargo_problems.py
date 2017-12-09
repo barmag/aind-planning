@@ -75,6 +75,7 @@ class AirCargoProblem(Problem):
                         # Load action
                         action = Action(expr("Load({}, {}, {})".format(c, p, a)),
                                             [preconditon_pos, preconditon_neg], [effect_add, effect_rem])
+                        loads.append(action)
 
             return loads
 
@@ -85,6 +86,21 @@ class AirCargoProblem(Problem):
             """
             unloads = []
             # TODO create all Unload ground actions from the domain Unload action
+            for c in self.cargos:
+                for a in self.airports:
+                    for p in self.planes:
+                        # positive precondition
+                        # Cargo in plane and plane at airport (existence of cargo, airport, plane is implicit)
+                        # example precond_pos = [expr("Have(Cake)")]
+                        preconditon_pos = [expr("In({}, {})".format(c, p)), expr("At({}, {})".format(p, a))]
+                        preconditon_neg = []
+                        # unload action effects remove c from plane, c at airport
+                        effect_rem = [expr("In({}, {})".format(c, p))]
+                        effect_add = [expr("At({}, {})".format(c, a))]
+                        # unload action
+                        action = Action(expr("Unload({}, {}, {})".format(c, p, a)),
+                                            [preconditon_pos, preconditon_neg], [effect_add, effect_rem])
+                        unloads.append(action)
             return unloads
 
         def fly_actions():
