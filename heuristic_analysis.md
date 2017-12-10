@@ -18,6 +18,7 @@ Fly(P2, JFK, SFO)
 Unload(C2, P2, SFO)
 Fly(P1, SFO, JFK)
 Unload(C1, P1, JFK)
+
 ## Problem 2
 | Algorithm | Nodes | Goal Tests | Time | Optimality |
 | ---       | ---   | ---        | ---  | ---:       |
@@ -38,4 +39,28 @@ Fly(P1, SFO, JFK)
 Unload(C1, P1, JFK)
 Fly(P3, ATL, SFO)
 Unload(C3, P3, SFO)
+
+## Problem 3
+| Algorithm | Nodes | Goal Tests | Time | Optimality |
+| ---       | ---   | ---        | ---  | ---:       |
+| BFS graph | 14663    | 18098         | 42.2 | Yes         |
+| BFS tree  | N/A  | N/A       | N/A  | N/A        |
+| DFS graph | 408    | 409         | 1.7 | No         |
+| Depth limited | N/A  | N/A       | N/A  | N/A        |
+| Uniform Cost | 18235    | 18237         | 52 | Yes         |
+
+### Optimal Plan
+_Length:_ 12
+Load(C1, P1, SFO)
+Load(C2, P2, JFK)
+Fly(P2, JFK, ORD)
+Load(C4, P2, ORD)
+Fly(P1, SFO, ATL)
+Load(C3, P1, ATL)
+Fly(P1, ATL, JFK)
+Unload(C1, P1, JFK)
+Unload(C3, P1, JFK)
+Fly(P2, ORD, SFO)
+Unload(C2, P2, SFO)
+Unload(C4, P2, SFO)
 
