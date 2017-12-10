@@ -339,6 +339,15 @@ class PlanningGraph():
         #   all of the new S nodes as children of all the A nodes that could produce them, and likewise add the A nodes to the
         #   parent sets of the S nodes
 
+        if len(self.s_levels) <= level:
+            self.s_levels.append(set())
+        
+        for action in self.a_levels[level-1]:
+            for literal in action.effnodes:
+                self.s_levels[level].add(literal)
+                literal.parents.add(action)
+                action.children.add(literal)
+
     def update_a_mutex(self, nodeset):
         """ Determine and update sibling mutual exclusion for A-level nodes
 
