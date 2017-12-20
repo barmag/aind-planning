@@ -438,6 +438,10 @@ class PlanningGraph():
         """
 
         # TODO test for Competing Needs between nodes
+        for a1_parents in node_a1.parents:
+            for a2_parents in node_a2.parents:
+                if a1_parents.is_mutex(a2_parents):
+                    return True
         return False
 
     def update_s_mutex(self, nodeset: set):
@@ -473,7 +477,8 @@ class PlanningGraph():
         :return: bool
         """
         # TODO test for negation between nodes
-        return False
+        is_negated = node_s1.is_pos != node_s2.is_pos and node_s1.symbol == node_s2.symbol
+        return is_negated
 
     def inconsistent_support_mutex(self, node_s1: PgNode_s, node_s2: PgNode_s):
         """
