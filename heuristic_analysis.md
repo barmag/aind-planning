@@ -9,7 +9,7 @@ In this analysis the results of running different search stratigies on the 3 car
 | DFS graph | 21    | 22         | 0.01 | No         |
 | Depth limited | 101    | 271         | 0.08 | No         |
 | Uniform Cost | 55    | 57         | 0.04 | Yes         |
-| Greedy BFS | 7    | 9         | 0.005 | Yes         |
+| Greedy BFS | 7    | 9         | 0.005 | No         |
 | A* h_1 | 55    | 57         | 0.04 | Yes         |
 | A* Ignore Pre | 41    | 43         | 0.035 | Yes         |
 | A* Level Sum | 11    | 13         | 0.6 | Yes         |
@@ -31,6 +31,10 @@ Unload(C1, P1, JFK)
 | DFS graph | 101    | 271         | 3.3 | No         |
 | Depth limited | N/A  | N/A       | N/A  | N/A        |
 | Uniform Cost | 4852    | 4854         | 12 | Yes         |
+| Greedy BFS | 990    | 992         | 2.42 | No         |
+| A* h_1 | 4852    | 4854         | 12 | Yes         |
+| A* Ignore Pre |1450    | 1452         | 4.3 | Yes         |
+| A* Level Sum | 86    | 88         | 57 | Yes         |
 
 ### Optimal Plan
 _Length:_ 9
