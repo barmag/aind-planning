@@ -9,6 +9,10 @@ In this analysis the results of running different search stratigies on the 3 car
 | DFS graph | 21    | 22         | 0.01 | No         |
 | Depth limited | 101    | 271         | 0.08 | No         |
 | Uniform Cost | 55    | 57         | 0.04 | Yes         |
+| Greedy BFS | 7    | 9         | 0.005 | Yes         |
+| A* h_1 | 55    | 57         | 0.04 | Yes         |
+| A* Ignore Pre | 41    | 43         | 0.035 | Yes         |
+| A* Level Sum | 11    | 13         | 0.6 | Yes         |
 
 ### Optimal Plan
 _Length:_ 6
