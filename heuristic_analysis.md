@@ -79,3 +79,10 @@ Unload(C2, P2, SFO)
 Unload(C4, P2, SFO)
 
 ## Analysis
+- As the search space grows slightly BFS tree search, and depth limited failed to find a solution in reasonable time.
+- For the three problems presented, DFS was the fastest to prove an existance of a solution, but generated a considerably costly plan.
+- Of the uinformed search algorithms, BFS graph was the fastest to find an optimal solution for the three problems. Greedy BFS found a good plan in better time, but not the optimal plan.
+- Informed search, with a constant heuristic function, performed like uninformed uniform cost search.
+- Informed search with good heuristic performed better than uninformed as the search space grows. Level sum did a good job at guiding the algorithm towards an optimal solution with the least node expansion. Yet the high cost of the level sum calculation made it considerably slower than ignore perconditions.
+## Conclusion
+As stated in the book, relaxing the problem is a good way to come up with a heuristic that does not overestimate the problem. Considering only the positive interactions proved to be a good strategy to find a heuristic for the problems reviewed in this report.
