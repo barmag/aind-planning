@@ -1,5 +1,5 @@
 # Heuristic Analysis
-In this analysis the results of running different search stratigies on the 3 cargo problems are presented. The search is performed without heuristics. The metrics prvided are number of node expansions, number of goal test, teim elapsed, and optimality of solution.
+In this analysis the results of running different search stratigies on the 3 cargo problems are presented. The search is performed without and without heuristics to compare the performance of uninformed and informed search algorithms. The metrics prvided are number of node expansions, number of goal test, time elapsed, and optimality of solution.
 
 ## Problem 1
 | Algorithm | Nodes | Goal Tests | Time | Optimality |
@@ -9,11 +9,12 @@ In this analysis the results of running different search stratigies on the 3 car
 | DFS graph | 21    | 22         | 0.01 | No         |
 | Depth limited | 101    | 271         | 0.08 | No         |
 | Uniform Cost | 55    | 57         | 0.04 | Yes         |
-| Greedy BFS | 7    | 9         | 0.005 | No         |
+| Greedy BFS | 7    | 9         | 0.005 | Yes         |
 | A* h_1 | 55    | 57         | 0.04 | Yes         |
 | A* Ignore Pre | 41    | 43         | 0.035 | Yes         |
 | A* Level Sum | 11    | 13         | 0.6 | Yes         |
 
+DFS is the fastest to find a solution, but the plan is long and not optimal. The fastest to find an optimal solution for this simple problem was greedy BFS. Yet we cannot generalize the results of this problem as it has a small search space.
 ### Optimal Plan
 _Length:_ 6
 Load(C2, P2, JFK)
@@ -36,6 +37,7 @@ Unload(C1, P1, JFK)
 | A* Ignore Pre |1450    | 1452         | 4.3 | Yes         |
 | A* Level Sum | 86    | 88         | 57.5 | Yes         |
 
+As the search space grows, BFS tree and dpeth limited failed to generate a plan in reasonable time. Again Greedy BFS was the fastest, but failed to generate an optimal plan. With a larger search space we can see the value of good heurisitcis. A* with level sum expanded the least number of nodes, and A* with ignore preconditions was the fastest to find an optimal plan.
 ### Optimal Plan
 _Length:_ 9
 Load(C1, P1, SFO)
@@ -60,10 +62,10 @@ Unload(C3, P3, SFO)
 | A* h_1 | 18235    | 18237         | 62.5 | Yes         |
 | A* Ignore Pre |5040    | 5042         | 19.65 | Yes         |
 | A* Level Sum | 318    | 320         | 339.9 | Yes         |
-
+Problem 3 is more complex with a larger search space, but still much simpler than real world prblems. We can observe that DFS is still the fastest to find a solution, but far from optimal. BFS graph is still able to find an optimal solution in reasonable time, but the fastest to find an optimal solution was A* with ignore precondition, and the algorithm with least node expansions was A* with level sum heuristic.
 ### Optimal Plan
-_Length:_ 12
-Load(C1, P1, SFO)
+_Length:_ 12Load(C1, P1, SFO)
+
 Load(C2, P2, JFK)
 Fly(P2, JFK, ORD)
 Load(C4, P2, ORD)
@@ -76,3 +78,4 @@ Fly(P2, ORD, SFO)
 Unload(C2, P2, SFO)
 Unload(C4, P2, SFO)
 
+## Analysis
