@@ -34,7 +34,7 @@ Unload(C1, P1, JFK)
 | Greedy BFS | 990    | 992         | 2.42 | No         |
 | A* h_1 | 4852    | 4854         | 12 | Yes         |
 | A* Ignore Pre |1450    | 1452         | 4.3 | Yes         |
-| A* Level Sum | 86    | 88         | 57 | Yes         |
+| A* Level Sum | 86    | 88         | 57.5 | Yes         |
 
 ### Optimal Plan
 _Length:_ 9
@@ -56,6 +56,10 @@ Unload(C3, P3, SFO)
 | DFS graph | 408    | 409         | 1.7 | No         |
 | Depth limited | N/A  | N/A       | N/A  | N/A        |
 | Uniform Cost | 18235    | 18237         | 52 | Yes         |
+| Greedy BFS | 5614    | 5616         | 19.16 | No         |
+| A* h_1 | 18235    | 18237         | 62.5 | Yes         |
+| A* Ignore Pre |5040    | 5042         | 19.65 | Yes         |
+| A* Level Sum | 318    | 320         | 339.9 | Yes         |
 
 ### Optimal Plan
 _Length:_ 12
